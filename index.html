@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neural Heart</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #000508; overflow: hidden; font-family: monospace; }
+    canvas { display: block; }
+    #info {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      color: rgba(80, 200, 255, 0.4);
+      font-size: 11px;
+      pointer-events: none;
+      letter-spacing: 0.08em;
+    }
+    #loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(80, 200, 255, 0.7);
+      font-size: 14px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">Loading neural mesh...</div>
+  <div id="info">drag to orbit &nbsp;·&nbsp; scroll to zoom &nbsp;·&nbsp; use panel to tune</div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+      "lil-gui": "https://cdn.jsdelivr.net/npm/lil-gui@0.19.2/dist/lil-gui.esm.js"
+    }
+  }
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
