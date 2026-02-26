@@ -80,12 +80,13 @@ export class Connection {
     const dir = pB.clone().sub(pA);
     const len = dir.length();
 
-    // A perpendicular vector (Gram-Schmidt)
-    const up = Math.abs(dir.y) < 0.9
+    // A perpendicular vector (Gram-Schmidt) — use normalized dir for the axis check
+    const dirN = dir.clone().normalize();
+    const up = Math.abs(dirN.y) < 0.9
       ? new THREE.Vector3(0, 1, 0)
       : new THREE.Vector3(1, 0, 0);
-    const perp1 = new THREE.Vector3().crossVectors(dir, up).normalize();
-    const perp2 = new THREE.Vector3().crossVectors(dir, perp1).normalize();
+    const perp1 = new THREE.Vector3().crossVectors(dirN, up).normalize();
+    const perp2 = new THREE.Vector3().crossVectors(dirN, perp1).normalize();
 
     const jitter = () => (Math.random() - 0.5) * len * this.config.connectionCurveOffset;
 
